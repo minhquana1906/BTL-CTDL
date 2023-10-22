@@ -10,10 +10,12 @@ using ll = long long;
 
 string transform(const string &word){
 	string res = word;
-	while(!res.empty() and ispunct(res.back())){
+	while(!res.empty() && ispunct(res.back())){
 		res.pop_back();
 	}
-	transform(res.begin(), res.end(), res.begin(), ::tolower);
+	for(char &x:res){
+		x = tolower(x);
+	}
 	return res;
 }
 

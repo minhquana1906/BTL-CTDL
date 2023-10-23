@@ -244,6 +244,5 @@ int main(){
     cout<<"Nhap vao gia tri a: ";
     cin>>a;
     tree.findPath(tree.getRoot(),path,sumRoads,a);
-	cout<< "==========================================\n";
     return 0;
 }

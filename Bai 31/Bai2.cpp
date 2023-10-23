@@ -205,27 +205,27 @@ int main(){
    vector<int> path;
    int sumRoads = 0;
 
-//nhap vao cay nhi phan thu 1
-	// tree.insert(tree.getRoot(),0);
-	// Node* l = tree.insert(tree.getRoot(),1);
-	// Node* r = tree.insert(tree.getRoot(),2);
-	// Node* lL = tree.insert(l,3);
-	// Node* lR = tree.insert(l,4);
-	// Node* rL = tree.insert(r,5);
-	// Node* rR = tree.insert(r,6);
-	// tree.insert(lL,7);
-	// tree.insert(lL,8);
-	// tree.insert(lR,9); 
+// nhap vao cay nhi phan thu 1
+	tree.insert(tree.getRoot(),0);
+	Node* l = tree.insert(tree.getRoot(),1);
+	Node* r = tree.insert(tree.getRoot(),2);
+	Node* lL = tree.insert(l,3);
+	Node* lR = tree.insert(l,4);
+	Node* rL = tree.insert(r,5);
+	Node* rR = tree.insert(r,6);
+	tree.insert(lL,7);
+	tree.insert(lL,8);
+	tree.insert(lR,9); 
 // Nhap vao cay nhi phan thu 2
-	tree.insert(tree.getRoot(),5);
-	Node* l = tree.insert(tree.getRoot(),4);
-	Node* r = tree.insert(tree.getRoot(),8);
-	Node* lL = tree.insert(l,11);
-	Node* rL = tree.insert(r,13);
-	Node* rR = tree.insert(r,4);
-	tree.insert(lL,2);
-	tree.insert(rL,7);
-	tree.insert(rR,1); 
+	findTree.insert(findTree.getRoot(),5);
+	Node* l1 = findTree.insert(findTree.getRoot(),4);
+	Node* r1 = findTree.insert(findTree.getRoot(),8);
+	Node* lL1 = findTree.insert(l1,11);
+	Node* rL1 = findTree.insert(r1,13);
+	Node* rR1 = findTree.insert(r1,4);
+	findTree.insert(lL1,2);
+	findTree.insert(rL1,7);
+	findTree.insert(rR1,1); 
 
 	cout<< "==========================================\n";
     cout<<"Duyet cay nhi phan theo tien tu: \n";
@@ -243,6 +243,6 @@ int main(){
     int a;
     cout<<"Nhap vao gia tri a: ";
     cin>>a;
-    tree.findPath(tree.getRoot(),path,sumRoads,a);
+    findTree.findPath(findTree.getRoot(),path,sumRoads,a);
     return 0;
 }

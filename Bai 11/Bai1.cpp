@@ -83,6 +83,6 @@ int main()
 	dictionary dic;
 	dic.readFile("words.txt");
 	dic.check();
-	// dic.exportFile("outputdic.txt");
+	dic.exportFile("outputdic.txt");
 	return 0;
 }

@@ -239,19 +239,12 @@ public:
 int main()
 {
     BinaryTree tree;
+    BinaryTree findTree;
     vector<int> path;
     int sum = 0;
-
     system("cls");
-    cout << "Size ban dau cua cay: " << tree.size() << endl;
-    cout << "cay co rong khong? ";
-    if (tree.isEmpty())
-    {
-        cout << "YES!\n";
-    }
-    else
-        cout << "NO!\n";
 
+    // them node vao cay nhi phan thu 1
     node *root = tree.insert(tree.getRoot(), 0);
     node *node1 = tree.insert(root, 1);
     node *node2 = tree.insert(root, 2);
@@ -263,16 +256,16 @@ int main()
     node *node8 = tree.insert(node3, 8);
     node *node9 = tree.insert(node4, 9);
 
-    cout << "\n=====================================\n";
-    cout << "Sau khi them node: \n";
-    cout << "Size ban dau cua cay: " << tree.size() << endl;
-    cout << "cay co rong khong? ";
-    if (tree.isEmpty())
-    {
-        cout << "YES!\n";
-    }
-    else
-        cout << "NO!\n";
+    // them node vao cay nhi phan thu 2
+    node *find_root = findTree.insert(findTree.getRoot(), 5);
+    node *find_node1 = findTree.insert(find_root, 4);
+    node *find_node2 = findTree.insert(find_root, 8);
+    node *find_node3 = findTree.insert(find_node1, 11);
+    node *find_node4 = findTree.insert(find_node3, 2);
+    node *find_node5 = findTree.insert(find_node2, 13);
+    node *find_node6 = findTree.insert(find_node2, 4);
+    node *find_node7 = findTree.insert(find_node5, 7);
+    node *find_node8 = findTree.insert(find_node6, 1);
 
     // duyet cay tien tu
     cout << "\n=====================================\n";
@@ -287,7 +280,6 @@ int main()
     cout << "duyet hau tu: ";
     tree.postOrder(tree.getRoot());
     cout << "\n=====================================\n";
-
     // in ra tat ca duong di tu goc den la
     cout << "\n=====================================\n";
     cout << "TAT CA DUONG DI TU GOC DEN LA: \n";
@@ -302,7 +294,7 @@ int main()
     int a, cnt = 0;
     cin >> a;
     cout << "DUONG DI TU GOC -> LA CO TONG BANG " << a << " LA: \n";
-    tree.FindPathEqualToA(tree.getRoot(), path, sum, a, cnt);
+    findTree.FindPathEqualToA(findTree.getRoot(), path, sum, a, cnt);
     if (cnt == 0)
     {
         cout << "False, khong ton tai duong di nao co tong = " << a << " !" << endl;

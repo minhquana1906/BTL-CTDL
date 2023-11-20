@@ -152,7 +152,6 @@ public:
     // Liet ke tat ca duong di tu goc den la
     void PathsList(node *node, vector<int> paths)
     {
-        // da
         if (node == nullptr)
         {
             return;
@@ -178,8 +177,9 @@ public:
     }
 
     // tinh tong cac so tu goc den la
-    void SumOfPath(node *node, vector<int> path, int sum)
+    void SumOfPath(node *node, vector<int> path, int &sum)
     {
+        // cay rong chua co phan tu
         if (node == nullptr)
         {
             return;
@@ -187,12 +187,12 @@ public:
         path.push_back(node->getValue());
         if (!node->getLeft() && !node->getRight())
         {
-            cout << "Sum of path = ";
+            int sumEach = 0;
             for (int value : path)
             {
-                sum = sum * 10 + value;
+                sumEach = sumEach * 10 + value;
             }
-            cout << sum << endl;
+            sum += sumEach;
         }
         else
         {
@@ -202,9 +202,10 @@ public:
     }
 
     // cho a, xac dinh xem duong di tu goc den la nao co tong = a
-    void FindPathEqualToA(node *node, vector<int> path, int sum, int &a, int &cnt)
+    void FindPathEqualToA(node *node, vector<int> path, int sum, int a, int &cnt)
     {
-        // neu la la thi return
+        sum = 0;
+        // neu cay rong thi return
         if (node == nullptr)
         {
             return;
@@ -227,7 +228,6 @@ public:
                 cnt++;
             }
         }
-
         else
         {
             FindPathEqualToA(node->getLeft(), path, sum, a, cnt);
@@ -288,6 +288,7 @@ int main()
     // in ra tong duong di tu goc den la
     cout << "TONG DUONG DI TU GOC DEN LA:  \n";
     tree.SumOfPath(tree.getRoot(), path, sum);
+    cout << "Sum of path = " << sum << endl;
     cout << "\n=====================================\n";
     // Tim tong cac so tu goc den la co gia tri = a
     cout << "Nhap vao gia tri a: ";

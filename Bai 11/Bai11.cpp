@@ -1,26 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string transform(const string &word)
-{
-	string res = word;
-	while (!res.empty() && ispunct(res.back()))
-	{
-		res.pop_back();
-	}
-	for (char &x : res)
-	{
-		x = tolower(x);
-	}
-	return res;
-}
-
 class dictionary
 {
 private:
 	set<string> dict;
 
 public:
+	// Ham chuan hoa chu
+	string ChuanHoa(const string &word)
+	{
+		string res = word;
+		while (!res.empty() && ispunct(res.back()))
+		{
+			res.pop_back();
+		}
+		for (char &x : res)
+		{
+			x = tolower(x);
+		}
+		return res;
+	}
+
 	// ham doc file
 	void readFile(const string &filename)
 	{
@@ -33,7 +34,7 @@ public:
 		string word;
 		while (getline(readFile, word))
 		{
-			word = transform(word);
+			word = ChuanHoa(word);
 			dict.insert(word);
 		}
 		readFile.close();
@@ -64,7 +65,7 @@ public:
 		int count = 0;
 		while (ss >> word)
 		{
-			word = transform(word);
+			word = ChuanHoa(word);
 			if (dict.find(word) == dict.end())
 			{
 				cout << "- " << word << " sai chinh ta !\n";
@@ -83,6 +84,6 @@ int main()
 	dictionary dic;
 	dic.readFile("words.txt");
 	dic.check();
-	dic.exportFile("outputdic.txt");
+	dic.exportFile("outputdict.txt");
 	return 0;
 }

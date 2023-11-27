@@ -118,6 +118,17 @@ public:
         return newNode;
     }
 
+    void remove(node *targetNode)
+    {
+        if (targetNode != nullptr)
+        {
+            remove(targetNode->getLeft());
+            remove(targetNode->getRight());
+            sz--;
+            delete targetNode;
+        }
+    }
+
     void preOrder(node *targetNode)
     {
         if (targetNode != nullptr)
